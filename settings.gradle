@@ -10,6 +10,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        // implementação do slider
+        maven { url 'https://jitpack.io' }
+        mavenCentral()
     }
 }
 rootProject.name = "AppLiviaVercosaEstetica"
