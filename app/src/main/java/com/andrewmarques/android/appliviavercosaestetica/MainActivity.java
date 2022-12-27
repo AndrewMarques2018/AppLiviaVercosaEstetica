@@ -25,30 +25,6 @@ public class MainActivity extends IntroActivity {
 
         addSlide( new FragmentSlide.Builder()
                 .background(android.R.color.white)
-                .fragment(R.layout.slider1_intro)
-                .build()
-        );
-
-        addSlide( new FragmentSlide.Builder()
-                .background(android.R.color.white)
-                .fragment(R.layout.slider1_intro)
-                .build()
-        );
-
-        addSlide( new FragmentSlide.Builder()
-                .background(android.R.color.white)
-                .fragment(R.layout.slider1_intro)
-                .build()
-        );
-
-        addSlide( new FragmentSlide.Builder()
-                .background(android.R.color.white)
-                .fragment(R.layout.slider1_intro)
-                .build()
-        );
-
-        addSlide( new FragmentSlide.Builder()
-                .background(android.R.color.white)
                 .fragment(R.layout.slider_registro)
                 .canGoForward(false) // impede o usuario de passar o slide
                 .build()

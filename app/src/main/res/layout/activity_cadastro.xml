@@ -4,20 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingEnd="24dp"
     tools:context=".Cadastro">
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:hint="Digite sua senha"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
-
-    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView6"
@@ -35,50 +23,84 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout3"
+        android:id="@+id/txt_nome_cadastro"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
+        android:hint="Digite seu nome"
+        app:errorIconDrawable="@drawable/ic_baseline_error_outline_24"
+        app:errorEnabled="true"
+        app:counterEnabled="true"
+        app:counterMaxLength="15"
+        android:textColorHint="#555555"
+        app:endIconMode="clear_text"
+        app:errorTextColor="@android:color/holo_red_light"
+        app:helperTextTextColor="#555555"
+        app:startIconDrawable="@drawable/ic_person_cinza"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Digite seu nome" />
+            android:maxLength="15"
+            android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout4"
+        android:id="@+id/txt_senha_cadastro"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
+        android:hint="Digite sua senha"
+        app:startIconDrawable="@drawable/ic_baseline_lock_24"
+        app:endIconMode="password_toggle"
+        android:textColorHint="#555555"
+        app:counterEnabled="true"
+        app:counterMaxLength="15"
+        app:helperTextEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+        app:layout_constraintTop_toBottomOf="@+id/txt_nome_cadastro">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Digite sua senha" />
+            android:textSize="14sp"
+            android:maxLength="15"
+            android:inputType="textPassword"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText"
-        android:layout_width="match_parent"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt_confirmaSenha_cadastro"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:hint="Confirme sua senha"
+        app:startIconDrawable="@drawable/ic_baseline_lock_24"
+        app:endIconMode="password_toggle"
+        android:textColorHint="#555555"
+        app:counterEnabled="true"
+        app:counterMaxLength="15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_senha_cadastro">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:maxLength="15"
+            android:inputType="textPassword"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/button2"
@@ -90,5 +112,20 @@
         android:text="Cadastre-se"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_confirmaSenha_cadastro" />
+
+    <TextView
+        android:id="@+id/txt_email_cadastro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:textAlignment="center"
+        android:textColor="#F44336"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
