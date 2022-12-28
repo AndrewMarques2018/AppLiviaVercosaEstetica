@@ -51,6 +51,7 @@ public class Login extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     Log.i("Análise do dev", "Login: login: Sucesso no login: ");
+                    finish();
                 }else{
                     try {
                         throw task.getException();

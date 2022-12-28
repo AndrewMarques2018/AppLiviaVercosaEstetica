@@ -2,7 +2,6 @@ package com.andrewmarques.android.appliviavercosaestetica.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.andrewmarques.android.appliviavercosaestetica.R;
@@ -15,11 +14,6 @@ public class MainActivity extends IntroActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Log.i("analise do dev", "Firebase: dados retornados: " +
-                FirebaseHelper.getInstance());
-        Log.i("analise do dev", "Firebase: dados retornados: user: " +
-                FirebaseHelper.getInstance().getCurrentUser());
 
         // // implementação do slider
         setButtonBackVisible(false);
@@ -39,11 +33,27 @@ public class MainActivity extends IntroActivity {
         );
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (isCurrentUser()){
+            redirecionar_menu_principal();
+        }
+    }
+
+    private boolean isCurrentUser() {
+        return FirebaseHelper.getInstance().getCurrentUser() != null;
+    }
+
     public void redirecionar_cadastro_on_clicker (View view ) {
         startActivity(new Intent(this, Cadastro.class));
     }
 
     public void redirecionar_login_on_clicker ( View view ) {
         startActivity(new Intent(this, Login.class));
+    }
+
+    public void redirecionar_menu_principal () {
+        startActivity(new Intent(this, Menu.class));
     }
 }

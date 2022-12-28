@@ -102,6 +102,7 @@ public class Cadastro extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     Log.i("Análise do dev", "Cadastro: cadastrar: Sucesso ao cadastrar");
+                    finish();
                 }else{
                     String msgException = "null";
                     try{
