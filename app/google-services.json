@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "224325117326",
+    "firebase_url": "https://appliviavercosaestetica-default-rtdb.firebaseio.com",
+    "project_id": "appliviavercosaestetica",
+    "storage_bucket": "appliviavercosaestetica.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224325117326:android:e2e9376e4b8527cb4770df",
+        "android_client_info": {
+          "package_name": "com.andrewmarques.android.appliviavercosaestetica"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "224325117326-8t5lom0et00m9q0qe1qdejq2srgm1219.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBwdJkbwQEQr50diW3fBJioz7WxMBLw2s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "224325117326-8t5lom0et00m9q0qe1qdejq2srgm1219.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
