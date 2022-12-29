@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingEnd="24dp"
+    android:background="@color/background"
     tools:context=".activity.Cadastro">
 
     <TextView
@@ -14,8 +14,10 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:text="Tela Cadastro"
-        android:textColor="#000000"
+        android:fontFamily="casual"
+        android:text="Cadastro"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/textColorEscuro"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,26 +29,27 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:hint="Digite seu nome"
-        app:errorIconDrawable="@drawable/ic_error_cinza"
-        app:errorEnabled="true"
+        android:textColorHint="#555555"
         app:counterEnabled="true"
         app:counterMaxLength="15"
-        android:textColorHint="#555555"
         app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/ic_error_cinza"
         app:errorTextColor="@android:color/holo_red_light"
         app:helperTextTextColor="#555555"
-        app:startIconDrawable="@drawable/ic_person_cinza"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
-        >
+        app:startIconDrawable="@drawable/ic_person_cinza">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:inputType="text"
             android:maxLength="15"
             android:textSize="14sp"
             tools:ignore="TouchTargetSizeCheck" />
@@ -57,25 +60,26 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="-5dp"
         android:layout_marginEnd="32dp"
         android:hint="Digite sua senha"
-        app:startIconDrawable="@drawable/ic_lock_cinza"
-        app:endIconMode="password_toggle"
         android:textColorHint="#555555"
         app:counterEnabled="true"
         app:counterMaxLength="15"
+        app:endIconMode="password_toggle"
         app:helperTextEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nome_cadastro">
+        app:layout_constraintTop_toBottomOf="@+id/txt_nome_cadastro"
+        app:startIconDrawable="@drawable/ic_lock_cinza">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:maxLength="15"
+            android:fontFamily="casual"
             android:inputType="textPassword"
-            />
+            android:maxLength="15"
+            android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -83,28 +87,30 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="-5dp"
         android:layout_marginEnd="32dp"
         android:hint="Confirme sua senha"
-        app:startIconDrawable="@drawable/ic_lock_cinza"
-        app:endIconMode="password_toggle"
         android:textColorHint="#555555"
         app:counterEnabled="true"
         app:counterMaxLength="15"
+        app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_senha_cadastro">
+        app:layout_constraintTop_toBottomOf="@+id/txt_senha_cadastro"
+        app:startIconDrawable="@drawable/ic_lock_cinza">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:maxLength="15"
+            android:fontFamily="casual"
             android:inputType="textPassword"
-            />
+            android:maxLength="15"
+            android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/button2"
+        style="@style/ButtonStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -112,6 +118,7 @@
         android:layout_marginEnd="32dp"
         android:onClick="bt_cadastrar_cadastro"
         android:text="Cadastre-se"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_confirmaSenha_cadastro" />
@@ -129,5 +136,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="175dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logo_estetica_degrade2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

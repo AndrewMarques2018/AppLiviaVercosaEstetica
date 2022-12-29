@@ -2,11 +2,16 @@
 <resources>
 
     <!-- Minhas cores personalizadas -->
-    <color name="primaryDark">#9C27B0</color>
-    <color name="primary">#BB3ED0</color>
-    <color name="accent">#D900FE</color>
-    <color name="background">#F9D7FF</color>
-    <color name="textColor">#540462</color>
+    <color name="primaryDark">#AA00F0</color>
+    <color name="primary">#C800FA</color>
+    <color name="accent">#FA00FA</color>
+    <color name="background">#FAF0FA</color>
+    <color name="textColorEscuro">#640064</color>
+    <color name="textColorClaro">#FFB4FF</color>
+
+    <color name="branco">#FFFFFF</color>
+    <color name="preto">#000000</color>
+
     <color name="testColor">#37FF00</color>
 
 </resources>
