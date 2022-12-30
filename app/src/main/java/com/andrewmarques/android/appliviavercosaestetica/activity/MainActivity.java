@@ -55,6 +55,6 @@ public class MainActivity extends IntroActivity {
     }
 
     public void redirecionar_menu_principal () {
-        startActivity(new Intent(this, MenuPrincipal.class));
+        startActivity(new Intent(this, Drawer.class));
     }
 }
