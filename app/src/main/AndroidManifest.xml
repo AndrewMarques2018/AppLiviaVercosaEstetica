@@ -16,7 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppLiviaVercosaEstetica"
         tools:targetApi="33">
-
+        <activity
+            android:name=".activity.Design"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".activity.Drawer"
             android:exported="false"

@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Livia Verçosa Estética</string>
+
+    <string-array name="languages">
+        <item>English</item>
+        <item>Fances</item>
+        <item>German</item>
+        <item>Portuguese</item>
+        <item>Italian</item>
+        <item>Russes</item>
+    </string-array>
+
+    <string-array name="order_clientes_by">
+        <item>Nome</item>
+        <item>Idade</item>
+        <item>Data</item>
+    </string-array>
 </resources>

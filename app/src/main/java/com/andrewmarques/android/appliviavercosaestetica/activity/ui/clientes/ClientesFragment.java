@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 
 import com.andrewmarques.android.appliviavercosaestetica.R;
@@ -22,7 +24,6 @@ import com.google.android.material.snackbar.Snackbar;
 public class ClientesFragment extends Fragment {
 
     private View fragmentView;
-    private Button bt_ordenar_clientes;
 
     public ClientesFragment() {
         // Required empty public constructor
@@ -41,24 +42,13 @@ public class ClientesFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        fragmentView = view;
-        bt_ordenar_clientes = view.findViewById(R.id.bt_ordenar_clientes);
-
-        bt_ordenar_clientes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                /*
-                Snackbar snackbar = Snackbar.make(view, "", Snackbar.LENGTH_INDEFINITE);
-                View custom = getLayoutInflater().inflate(R.layout.snackbar_order_client, null);
-                snackbar.getView().setBackgroundColor(Color.TRANSPARENT);
-                Snackbar.SnackbarLayout snackbarLayout = (Snackbar.SnackbarLayout) snackbar.getView();
-                snackbarLayout.setPadding(0,0,0,0);
-                snackbarLayout.addView(custom, 0);
-                snackbar.show();
-                */
-            }
-        });
-
         super.onViewCreated(view, savedInstanceState);
+
+        fragmentView = view;
+        String[] order_clientes_by = getResources().getStringArray(R.array.order_clientes_by);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(fragmentView.getContext(), R.layout.dropdown_item, order_clientes_by);
+        AutoCompleteTextView autoCompleteTextView = fragmentView.findViewById(R.id.autoCompleteTextView_orderClientes);
+        autoCompleteTextView.setAdapter(arrayAdapter);
     }
+
 }
