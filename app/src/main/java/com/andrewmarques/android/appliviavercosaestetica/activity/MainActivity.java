@@ -20,13 +20,13 @@ public class MainActivity extends IntroActivity {
         setButtonNextVisible(false);
 
         addSlide( new FragmentSlide.Builder()
-                .background(R.color.background)
+                .background(R.color.md_theme_light_background)
                 .fragment(R.layout.slider1_intro)
                 .build()
         );
 
         addSlide( new FragmentSlide.Builder()
-                .background(R.color.background)
+                .background(R.color.md_theme_light_background)
                 .fragment(R.layout.slider_registro)
                 .canGoForward(false) // impede o usuario de passar o slide
                 .build()

@@ -4,24 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
     app:circularflow_angles="45"
     app:circularflow_defaultAngle="45"
     app:circularflow_defaultRadius="5dp"
     app:circularflow_radiusInDP="10dp">
 
     <ImageView
+        style="@style/LogoStyle"
         android:id="@+id/imageView"
         android:layout_width="300dp"
         android:layout_height="250dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="130dp"
         android:layout_marginEnd="8dp"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_estetica" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button5"
@@ -35,7 +34,6 @@
         android:onClick="redirecionar_cadastro_on_clicker"
         android:text="Cadastre-se"
         android:textAllCaps="false"
-        android:textColor="@color/branco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />

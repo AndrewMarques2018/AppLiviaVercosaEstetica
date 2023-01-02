@@ -29,7 +29,7 @@
         android:layout_marginStart="16dp"
         android:fontFamily="sans-serif-black"
         android:text="Livia Verçosa"
-        android:textColor="@color/branco"
+        android:textColor="@color/md_theme_light_onPrimary"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
@@ -42,7 +42,7 @@
         android:layout_marginTop="-2dp"
         android:fontFamily="sans-serif"
         android:text="Esteticista"
-        android:textColor="@color/branco"
+        android:textColor="@color/md_theme_light_onPrimary"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />

@@ -10,16 +10,17 @@
         android:appCategory="social"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/logo_estetica"
+        android:icon="@drawable/logo_estetica_fundo_branco_circular"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/logo_estetica"
+        android:roundIcon="@drawable/logo_estetica_fundo_branco_circular"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppLiviaVercosaEstetica"
         tools:targetApi="33">
 
         <activity
-            android:name=".activity.Drawer" android:theme="@style/Theme.AppLiviaVercosaEstetica.NoActionBar"
-            android:exported="false">
+            android:name=".activity.Drawer"
+            android:exported="false"
+            android:theme="@style/Theme.AppLiviaVercosaEstetica">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

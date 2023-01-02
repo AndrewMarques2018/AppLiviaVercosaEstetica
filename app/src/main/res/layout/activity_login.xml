@@ -7,6 +7,7 @@
     tools:context=".activity.Login">
 
     <ImageView
+        style="@style/LogoStyle"
         android:id="@+id/imageView5"
         android:layout_width="175dp"
         android:layout_height="100dp"

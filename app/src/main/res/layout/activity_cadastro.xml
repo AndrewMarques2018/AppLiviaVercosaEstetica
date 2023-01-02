@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
     tools:context=".activity.Cadastro">
 
     <TextView
@@ -17,7 +16,6 @@
         android:fontFamily="casual"
         android:text="Cadastro"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textColor="@color/textColorEscuro"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,6 +24,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txt_nome_cadastro"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -138,6 +137,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <ImageView
+        style="@style/LogoStyle"
         android:id="@+id/imageView4"
         android:layout_width="175dp"
         android:layout_height="100dp"
