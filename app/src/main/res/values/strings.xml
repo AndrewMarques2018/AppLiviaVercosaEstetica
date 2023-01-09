@@ -14,5 +14,6 @@
         <item>Nome</item>
         <item>Idade</item>
         <item>Data</item>
+        <item>Agendamento</item>
     </string-array>
 </resources>

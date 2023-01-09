@@ -14,7 +14,7 @@
         android:scrollbarThumbHorizontal="@drawable/ic_filter">
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/frag_txt_pesquiza_cliente"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
@@ -49,7 +49,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_clientes"
+            android:id="@+id/frag_recycler_clientes"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
@@ -59,7 +59,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+            app:layout_constraintTop_toBottomOf="@+id/frag_txt_pesquiza_cliente"
             app:layout_constraintVertical_bias="1.0" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -73,7 +73,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <AutoCompleteTextView
-                android:id="@+id/autoCompleteTextView_orderClientes"
+                android:id="@+id/frag_bt_order_by_clientes"
                 android:layout_width="125dp"
                 android:layout_height="50dp"
                 android:background="@drawable/roundedbutton"
