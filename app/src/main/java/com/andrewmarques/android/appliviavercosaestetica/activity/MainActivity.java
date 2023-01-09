@@ -4,34 +4,35 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
+
 import com.andrewmarques.android.appliviavercosaestetica.R;
+import com.andrewmarques.android.appliviavercosaestetica.activity.fragments.FragmentSlider1Intro;
+import com.andrewmarques.android.appliviavercosaestetica.activity.fragments.FragmentSliderRegistro;
 import com.andrewmarques.android.appliviavercosaestetica.bd.FirebaseHelper;
+import com.andrewmarques.android.appliviavercosaestetica.databinding.ActivityMainBinding;
 import com.heinrichreimersoftware.materialintro.app.IntroActivity;
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
 
-public class MainActivity extends IntroActivity {
+public class MainActivity extends FragmentActivity {
+
+    ActivityMainBinding binding;
+    private ViewPager2 viewPagerSliderIntro;
+    private FragmentStateAdapter pagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        // // implementação do slider
-        setButtonBackVisible(false);
-        setButtonNextVisible(false);
-
-        addSlide( new FragmentSlide.Builder()
-                .background(R.color.md_theme_light_background)
-                .fragment(R.layout.slider1_intro)
-                .build()
-        );
-
-        addSlide( new FragmentSlide.Builder()
-                .background(R.color.md_theme_light_background)
-                .fragment(R.layout.slider_registro)
-                .canGoForward(false) // impede o usuario de passar o slide
-                .build()
-        );
-
+        viewPagerSliderIntro = binding.viewPager2;
+        pagerAdapter = new ScreenSliderPageAdapter(this);
+        viewPagerSliderIntro.setAdapter(pagerAdapter);
     }
 
     @Override
@@ -57,5 +58,29 @@ public class MainActivity extends IntroActivity {
     public void redirecionar_menu_principal () {
         //startActivity(new Intent(this, Design.class));
         startActivity(new Intent(this, Drawer.class));
+    }
+
+    private class ScreenSliderPageAdapter extends FragmentStateAdapter {
+
+        public ScreenSliderPageAdapter(MainActivity mainActivity) {
+            super(mainActivity);
+        }
+
+        @Override
+        public Fragment createFragment(int position) {
+            switch (position){
+                case 0:
+                    return new FragmentSlider1Intro();
+                case 1:
+                    return new FragmentSliderRegistro();
+                default:
+                    return null;
+            }
+        }
+
+        @Override
+        public int getItemCount() {
+            return 2;
+        }
     }
 }

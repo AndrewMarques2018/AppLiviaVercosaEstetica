@@ -16,27 +16,24 @@ import android.view.View;
 
 import com.andrewmarques.android.appliviavercosaestetica.R;
 import com.andrewmarques.android.appliviavercosaestetica.bd.FirebaseHelper;
+import com.andrewmarques.android.appliviavercosaestetica.databinding.ActivityDrawerBinding;
 import com.google.android.material.navigation.NavigationView;
 
 public class Drawer extends AppCompatActivity {
 
-    //private ActivityMenuPrincipalBinding binding;
+    private ActivityDrawerBinding binding;
     private AppBarConfiguration mAppBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //binding = ActivityMenuPrincipalBinding.inflate(getLayoutInflater());
-        //setContentView(binding.getRoot());
-        setContentView(R.layout.activity_drawer);
+        binding = ActivityDrawerBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        //setSupportActionBar(binding.appBarMenuPrincipal.toolbar);
-        setSupportActionBar(findViewById(R.id.toolbar));
+        setSupportActionBar(binding.appBarMenuPrincipal.toolbar);
 
-        //DrawerLayout drawer = binding.drawerLayout;
-        //NavigationView navigationView = binding.navView;
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        DrawerLayout drawer = binding.drawerLayout;
+        NavigationView navigationView = binding.navView;
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_clientes)

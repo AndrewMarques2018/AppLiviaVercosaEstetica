@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.andrewmarques.android.appliviavercosaestetica.R;
 import com.andrewmarques.android.appliviavercosaestetica.bd.FirebaseHelper;
+import com.andrewmarques.android.appliviavercosaestetica.databinding.ActivityCadastroBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -26,6 +27,7 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
 public class Cadastro extends AppCompatActivity {
 
+    private ActivityCadastroBinding binding;
     private TextInputLayout txt_nome;
     private TextInputLayout txt_senha;
     private TextInputLayout txt_confirmaSenha;
@@ -34,12 +36,13 @@ public class Cadastro extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastro);
+        binding = ActivityCadastroBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        txt_nome = findViewById(R.id.txt_nome_cadastro);
-        txt_senha = findViewById(R.id.txt_senha_cadastro);
-        txt_confirmaSenha = findViewById(R.id.txt_confirmaSenha_cadastro);
-        txt_email = findViewById(R.id.txt_email_cadastro);
+        txt_nome = binding.txtNomeCadastro;
+        txt_senha = binding.txtSenhaCadastro;
+        txt_confirmaSenha = binding.txtConfirmaSenhaCadastro;
+        txt_email = binding.txtEmailCadastro;
 
         txt_nome.getEditText().addTextChangedListener(new TextWatcher() {
             @Override

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.ui.clientes.ClientesFragment">
+    tools:context=".activity.fragments.FragmentClientes">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -23,6 +23,7 @@
             android:layout_weight="0"
             android:background="@drawable/roundedbutton"
             android:drawableStart="@drawable/ic_pesquizar"
+            android:drawableTint="@color/md_theme_light_onPrimary"
             android:drawablePadding="8dp"
             android:elevation="5dp"
             android:fontFamily="sans-serif-thin"
@@ -30,6 +31,8 @@
             android:inputType="text"
             android:paddingLeft="8dp"
             android:paddingEnd="8dp"
+            android:textColor="@color/md_theme_light_background"
+            android:textColorHint="@color/md_theme_light_onPrimary"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/textInputLayout"
@@ -65,26 +68,24 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            app:endIconTint="@color/md_theme_light_onPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
+            android:padding="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <AutoCompleteTextView
                 android:id="@+id/frag_bt_order_by_clientes"
-                android:layout_width="125dp"
+                android:layout_width="145dp"
                 android:layout_height="50dp"
                 android:background="@drawable/roundedbutton"
                 android:inputType="none"
                 android:padding="0dp"
-                android:paddingLeft="8dp"
-                android:paddingTop="0dp"
-                android:paddingRight="8dp"
-                android:paddingBottom="0dp"
                 android:text="Ordenar"
-                android:textColor="@color/md_theme_light_onPrimaryContainer"
+                android:textColor="@color/md_theme_light_onPrimary"
                 android:textSize="12sp"
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>

@@ -9,23 +9,28 @@ import android.view.View;
 
 import com.andrewmarques.android.appliviavercosaestetica.R;
 import com.andrewmarques.android.appliviavercosaestetica.bd.FirebaseHelper;
+import com.andrewmarques.android.appliviavercosaestetica.databinding.ActivityLoginBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 
+
 public class Login extends AppCompatActivity {
 
+    private ActivityLoginBinding binding;
     private TextInputLayout txt_email;
     private TextInputLayout txt_senha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        txt_email = findViewById(R.id.txt_email_login);
-        txt_senha = findViewById(R.id.txt_senha_login);
+        txt_email = binding.txtEmailLogin;
+        txt_senha = binding.txtSenhaLogin;
+
     }
 
     public void bt_login_login (View view) {

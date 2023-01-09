@@ -11,9 +11,10 @@
     </string-array>
 
     <string-array name="order_clientes_by">
-        <item>Nome</item>
-        <item>Idade</item>
+        <item>Nome A-Z</item>
+        <item>Nome Z-A</item>
+        <item>Idade </item>
         <item>Data</item>
-        <item>Agendamento</item>
+        <item>Agenda</item>
     </string-array>
 </resources>
