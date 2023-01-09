@@ -9,6 +9,15 @@
         android:id="@+id/nav_clientes"
         android:name="com.andrewmarques.android.appliviavercosaestetica.activity.fragments.FragmentClientes"
         android:label="Clientes"
-        tools:layout="@layout/fragment_clientes" />
+        tools:layout="@layout/fragment_clientes" >
+        <action
+            android:id="@+id/action_mostrar_bottomSheet_add_clientes"
+            app:destination="@id/fragmentBottomSheetAddClientes" />
+    </fragment>
+    <dialog
+        android:id="@+id/fragmentBottomSheetAddClientes"
+        android:name="com.andrewmarques.android.appliviavercosaestetica.activity.fragments.FragmentClientesBottomSheetAdd"
+        android:label="fragment_bottom_sheet_add_clientes"
+        tools:layout="@layout/fragment_bottom_sheet_add_clientes" />
 
 </navigation>

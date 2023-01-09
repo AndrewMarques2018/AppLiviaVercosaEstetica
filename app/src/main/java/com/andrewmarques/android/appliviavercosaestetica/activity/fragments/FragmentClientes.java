@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,6 +21,7 @@ import android.widget.AutoCompleteTextView;
 import com.andrewmarques.android.appliviavercosaestetica.R;
 import com.andrewmarques.android.appliviavercosaestetica.adapter.AdapterClientes;
 import com.andrewmarques.android.appliviavercosaestetica.model.Cliente;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -37,20 +39,12 @@ public class FragmentClientes extends Fragment {
     private List<Cliente> clientes;
     AdapterClientes adapterClientes;
 
-    RecyclerView recyclerView;
-
     public FragmentClientes() {
         // Required empty public constructor
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_clientes, container, false);
     }
 
@@ -59,19 +53,25 @@ public class FragmentClientes extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         fragmentView = view;
+        FloatingActionButton fab = fragmentView.findViewById(R.id.fab_add_cliente);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(fragmentView).navigate(R.id.action_mostrar_bottomSheet_add_clientes);
+            }
+        });
 
         // configurar configurações de escolha de ordem das clientes
         String[] order_clientes_by = getResources().getStringArray(R.array.order_clientes_by);
         ArrayAdapter arrayAdapter = new ArrayAdapter(fragmentView.getContext(), R.layout.dropdown_item, order_clientes_by);
         AutoCompleteTextView autoCompleteTextView = fragmentView.findViewById(R.id.frag_bt_order_by_clientes);
         autoCompleteTextView.setAdapter(arrayAdapter);
-        Log.i("Análize do dev", "retorno bt_order_by_clientes: " + autoCompleteTextView.getText());
         autoCompleteTextView.addTextChangedListener(order_clientes_change);
 
         // configurar recycle view clientes
-        RecyclerView recyclerView = view.findViewById(R.id.frag_recycler_clientes);
+        RecyclerView recyclerView = fragmentView.findViewById(R.id.frag_recycler_clientes);
         recyclerView.setHasFixedSize(true);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(view.getContext());
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(fragmentView.getContext());
         recyclerView.setLayoutManager(layoutManager);
         gerarClientes();
         adapterClientes = new AdapterClientes(clientes);

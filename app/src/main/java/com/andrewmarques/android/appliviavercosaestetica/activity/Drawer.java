@@ -2,27 +2,25 @@ package com.andrewmarques.android.appliviavercosaestetica.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.andrewmarques.android.appliviavercosaestetica.R;
 import com.andrewmarques.android.appliviavercosaestetica.bd.FirebaseHelper;
 import com.andrewmarques.android.appliviavercosaestetica.databinding.ActivityDrawerBinding;
-import com.google.android.material.navigation.NavigationView;
 
 public class Drawer extends AppCompatActivity {
 
     private ActivityDrawerBinding binding;
     private AppBarConfiguration mAppBarConfiguration;
+    private NavHostFragment navHostFragment;
+    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,23 +30,20 @@ public class Drawer extends AppCompatActivity {
 
         setSupportActionBar(binding.appBarMenuPrincipal.toolbar);
 
-        DrawerLayout drawer = binding.drawerLayout;
-        NavigationView navigationView = binding.navView;
-
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_clientes)
-                .setOpenableLayout(drawer)
+                .setOpenableLayout(binding.drawerLayout)
                 .build();
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_menu_principal);
+        navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+        navController = navHostFragment.getNavController();
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+        NavigationUI.setupWithNavController(binding.navView, navController);
 
     }
 
     @Override
     public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_menu_principal);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
