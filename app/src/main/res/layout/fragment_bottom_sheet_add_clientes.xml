@@ -12,8 +12,18 @@
         android:layout_height="match_parent"
         android:background="@drawable/background_button_sheet">
 
+        <Button
+            android:id="@+id/bt"
+            android:layout_width="wrap_content"
+            android:layout_height="12dp"
+            android:layout_marginTop="3dp"
+            android:backgroundTint="#AAAAAA"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/txt_adicionar_cliente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -22,29 +32,21 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button4" />
+            app:layout_constraintTop_toBottomOf="@+id/bt" />
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="wrap_content"
-            android:layout_height="5dp"
-            android:layout_marginTop="3dp"
-            android:backgroundTint="#555555"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_dados_cliente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9">
+            app:layout_constraintTop_toBottomOf="@+id/txt_adicionar_cliente">
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/txt_dados_cliente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dados Cliente:"
@@ -52,18 +54,16 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/txt_nome_cliente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:layout_marginBottom="32dp"
                 android:text="Nome:"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_dados_cliente" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName2"
+                android:id="@+id/input_nome_cliente"
                 style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -72,12 +72,214 @@
                 android:inputType="text"
                 android:padding="0dp"
                 android:textAlignment="textStart"
-                app:layout_constraintBottom_toBottomOf="@+id/textView15"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_nome_cliente"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView15"
-                app:layout_constraintTop_toTopOf="@+id/textView15" />
+                app:layout_constraintStart_toEndOf="@+id/txt_nome_cliente"
+                app:layout_constraintTop_toTopOf="@+id/txt_nome_cliente" />
+
+            <TextView
+                android:id="@+id/txt_telefone_cliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Telefone:"
+                app:layout_constraintEnd_toStartOf="@+id/input_telefone_cliente"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_nome_cliente" />
+
+            <EditText
+                android:id="@+id/input_telefone_cliente"
+                style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:includeFontPadding="false"
+                android:inputType="text"
+                android:padding="0dp"
+                android:textAlignment="textStart"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_telefone_cliente"
+                app:layout_constraintEnd_toStartOf="@+id/txt_data_nasc_cliente"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/txt_telefone_cliente"
+                app:layout_constraintTop_toTopOf="@+id/txt_telefone_cliente" />
+
+            <TextView
+                android:id="@+id/txt_data_nasc_cliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:text="Nasc"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_telefone_cliente"
+                app:layout_constraintEnd_toStartOf="@+id/input_data_nasc_cliente"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/input_telefone_cliente"
+                app:layout_constraintTop_toTopOf="@+id/txt_telefone_cliente" />
+
+            <EditText
+                android:id="@+id/input_data_nasc_cliente"
+                style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:inputType="text"
+                android:padding="0dp"
+                android:textAlignment="textStart"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_telefone_cliente"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/txt_data_nasc_cliente"
+                app:layout_constraintTop_toTopOf="@+id/txt_telefone_cliente" />
+
+            <TextView
+                android:id="@+id/txt_email_cliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="E-mail:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_telefone_cliente" />
+
+            <EditText
+                android:id="@+id/input_email_cliente"
+                style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:includeFontPadding="false"
+                android:inputType="text"
+                android:padding="0dp"
+                android:textAlignment="textStart"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_email_cliente"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_email_cliente"
+                app:layout_constraintTop_toTopOf="@+id/txt_email_cliente" />
+
+            <TextView
+                android:id="@+id/txt_endereco_cliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Endereço:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_email_cliente" />
+
+            <EditText
+                android:id="@+id/input_endereco_cliente"
+                style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:includeFontPadding="false"
+                android:inputType="text"
+                android:padding="0dp"
+                android:textAlignment="textStart"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_endereco_cliente"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_endereco_cliente"
+                app:layout_constraintTop_toTopOf="@+id/txt_endereco_cliente" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/layout_dados_cliente"
+            app:layout_constraintStart_toStartOf="@+id/layout_dados_cliente"
+            app:layout_constraintTop_toBottomOf="@+id/layout_dados_cliente">
+
+            <TextView
+                android:id="@+id/txt_dados_emergencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dados Emergência"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_nome_emergencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Nome:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_dados_emergencia" />
+
+            <EditText
+                android:id="@+id/input_nome_emergencia"
+                style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:includeFontPadding="false"
+                android:inputType="text"
+                android:padding="0dp"
+                android:textAlignment="textStart"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_nome_emergencia"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_nome_emergencia"
+                app:layout_constraintTop_toTopOf="@+id/txt_nome_emergencia" />
+
+            <TextView
+                android:id="@+id/txt_telefone_emergencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Telefone:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_nome_emergencia" />
+
+            <EditText
+                android:id="@+id/input_telefone_emergencia"
+                style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:includeFontPadding="false"
+                android:inputType="text"
+                android:padding="0dp"
+                android:textAlignment="textStart"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_telefone_emergencia"
+                app:layout_constraintStart_toEndOf="@+id/txt_telefone_emergencia"
+                app:layout_constraintTop_toTopOf="@+id/txt_telefone_emergencia" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/bt_add_cliente_cancela"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Cancela"
+            app:layout_constraintEnd_toStartOf="@+id/bt_add_cliente_confirma"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+        <Button
+            android:id="@+id/bt_add_cliente_confirma"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="Confirma"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/bt_add_cliente_cancela"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
