@@ -31,7 +31,7 @@ public class Drawer extends AppCompatActivity {
         setSupportActionBar(binding.appBarMenuPrincipal.toolbar);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_clientes)
+                R.id.nav_home, R.id.nav_clientes, R.id.nav_agenda, R.id.nav_orcamento, R.id.nav_financas, R.id.nav_procedimentos)
                 .setOpenableLayout(binding.drawerLayout)
                 .build();
 
@@ -60,6 +60,12 @@ public class Drawer extends AppCompatActivity {
             case R.id.menu_sair:
                 FirebaseHelper.singnOut();
                 finish();
+                break;
+            case R.id.menu_info:
+                navController.navigate(R.id.nav_info);
+                break;
+            case R.id.menu_conta:
+                navController.navigate(R.id.nav_conta);
                 break;
         }
 

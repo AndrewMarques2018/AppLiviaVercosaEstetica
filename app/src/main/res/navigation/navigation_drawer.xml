@@ -3,7 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_clientes">
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.andrewmarques.android.appliviavercosaestetica.activity.fragments.FragmentHome"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home_to_clientes"
+            app:destination="@id/nav_clientes" />
+        <action
+            android:id="@+id/action_home_to_orcamento"
+            app:destination="@id/nav_orcamento" />
+        <action
+            android:id="@+id/action_home_to_financas"
+            app:destination="@id/nav_financas" />
+        <action
+            android:id="@+id/action_home_to_agenda"
+            app:destination="@id/nav_agenda" />
+        <action
+            android:id="@+id/action_home_to_procedimentos"
+            app:destination="@id/nav_procedimentos" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_clientes"
@@ -13,11 +35,63 @@
         <action
             android:id="@+id/action_mostrar_bottomSheet_add_clientes"
             app:destination="@id/fragmentBottomSheetAddClientes" />
+        <action
+            android:id="@+id/action_mostrar_ficha_cliente"
+            app:destination="@id/fragmentFichaCliente" />
     </fragment>
+
     <dialog
         android:id="@+id/fragmentBottomSheetAddClientes"
         android:name="com.andrewmarques.android.appliviavercosaestetica.activity.fragments.FragmentClientesBottomSheetAdd"
         android:label="fragment_bottom_sheet_add_clientes"
         tools:layout="@layout/fragment_bottom_sheet_add_clientes" />
+
+    <fragment
+        android:id="@+id/fragmentFichaCliente"
+        android:name="com.andrewmarques.android.appliviavercosaestetica.activity.fragments.FragmentFichaCliente"
+        android:label="fragment_ficha_cliente"
+        tools:layout="@layout/fragment_ficha_cliente" />
+
+    <fragment
+        android:id="@+id/nav_agenda"
+        android:name="com.andrewmarques.android.appliviavercosaestetica.activity.fragments.FragmentAgenda"
+        android:label="Agenda"
+        tools:layout="@layout/fragment_agenda" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_financas"
+        android:name="com.andrewmarques.android.appliviavercosaestetica.activity.fragments.FragmentFinancas"
+        android:label="Finanças"
+        tools:layout="@layout/fragment_financas" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_orcamento"
+        android:name="com.andrewmarques.android.appliviavercosaestetica.activity.fragments.FragmentOrcamento"
+        android:label="Orçamento"
+        tools:layout="@layout/fragment_orcamento" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_procedimentos"
+        android:name="com.andrewmarques.android.appliviavercosaestetica.activity.fragments.FragmentProcedimentos"
+        android:label="Procedimentos"
+        tools:layout="@layout/fragment_procedimentos" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_conta"
+        android:name="com.andrewmarques.android.appliviavercosaestetica.activity.fragments.FragmentConta"
+        android:label="Conta"
+        tools:layout="@layout/fragment_conta" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_info"
+        android:name="com.andrewmarques.android.appliviavercosaestetica.activity.fragments.FragmentInfo"
+        android:label="Info"
+        tools:layout="@layout/fragment_info" >
+    </fragment>
 
 </navigation>

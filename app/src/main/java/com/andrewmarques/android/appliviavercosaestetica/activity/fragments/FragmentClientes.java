@@ -74,7 +74,7 @@ public class FragmentClientes extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(fragmentView.getContext());
         recyclerView.setLayoutManager(layoutManager);
         gerarClientes();
-        adapterClientes = new AdapterClientes(clientes);
+        adapterClientes = new AdapterClientes(clientes, Navigation.findNavController(fragmentView));
         recyclerView.setAdapter(adapterClientes);
 
     }

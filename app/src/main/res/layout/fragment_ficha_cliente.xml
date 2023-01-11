@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.fragments.FragmentFichaCliente">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_anamnese"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/txt_anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Anamnese"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_dados_anamnese"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_anamnese">
+
+                    <TextView
+                        android:id="@+id/txt_nome_anamnese"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nome:"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/input_nome_anamnese"
+                        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:includeFontPadding="false"
+                        android:inputType="text"
+                        android:padding="0dp"
+                        android:paddingStart="8dp"
+                        android:textAlignment="textStart"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/txt_nome_anamnese"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/txt_nome_anamnese"
+                        app:layout_constraintTop_toTopOf="@+id/txt_nome_anamnese" />
+
+                    <TextView
+                        android:id="@+id/txt_telefone_anamnese"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Telefone:"
+                        app:layout_constraintEnd_toStartOf="@+id/input_telefone_anamnese"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_nome_anamnese" />
+
+                    <EditText
+                        android:id="@+id/input_telefone_anamnese"
+                        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:includeFontPadding="false"
+                        android:inputType="text"
+                        android:padding="0dp"
+                        android:paddingStart="8dp"
+                        android:textAlignment="textStart"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/txt_telefone_anamnese"
+                        app:layout_constraintEnd_toStartOf="@+id/txt_data_nasc_anamnese"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/txt_telefone_anamnese"
+                        app:layout_constraintTop_toTopOf="@+id/txt_telefone_anamnese" />
+
+                    <TextView
+                        android:id="@+id/txt_data_nasc_anamnese"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp"
+                        android:text="Nasc"
+                        app:layout_constraintBottom_toBottomOf="@+id/txt_telefone_anamnese"
+                        app:layout_constraintEnd_toStartOf="@+id/input_data_nasc_anamnese"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/input_telefone_anamnese"
+                        app:layout_constraintTop_toTopOf="@+id/txt_telefone_anamnese" />
+
+                    <EditText
+                        android:id="@+id/input_data_nasc_anamnese"
+                        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:inputType="text"
+                        android:padding="0dp"
+                        android:paddingStart="8dp"
+                        android:textAlignment="textStart"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/txt_telefone_anamnese"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/txt_data_nasc_anamnese"
+                        app:layout_constraintTop_toTopOf="@+id/txt_telefone_anamnese" />
+
+                    <TextView
+                        android:id="@+id/txt_email_anamnese"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="E-mail:"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_telefone_anamnese" />
+
+                    <EditText
+                        android:id="@+id/input_email_anamnese"
+                        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:includeFontPadding="false"
+                        android:inputType="text"
+                        android:padding="0dp"
+                        android:paddingStart="8dp"
+                        android:textAlignment="textStart"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/txt_email_anamnese"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/txt_email_anamnese"
+                        app:layout_constraintTop_toTopOf="@+id/txt_email_anamnese" />
+
+                    <TextView
+                        android:id="@+id/txt_endereco_anamnese"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Endereço:"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_email_anamnese" />
+
+                    <EditText
+                        android:id="@+id/input_endereco_anamnese"
+                        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:includeFontPadding="false"
+                        android:inputType="text"
+                        android:padding="0dp"
+                        android:paddingStart="8dp"
+                        android:textAlignment="textStart"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/txt_endereco_anamnese"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/txt_endereco_anamnese"
+                        app:layout_constraintTop_toTopOf="@+id/txt_endereco_anamnese" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/layout_dados_anamnese"
+                    app:layout_constraintStart_toStartOf="@+id/layout_dados_anamnese"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_dados_anamnese">
+
+                    <TextView
+                        android:id="@+id/txt_dados_emergencia_anamnese"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dados Emergência"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt_nome_emergencia_anamnese"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Nome:"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_dados_emergencia_anamnese" />
+
+                    <EditText
+                        android:id="@+id/input_nome_emergencia_anamnese"
+                        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:includeFontPadding="false"
+                        android:inputType="text"
+                        android:padding="0dp"
+                        android:paddingStart="8dp"
+                        android:textAlignment="textStart"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/txt_nome_emergencia_anamnese"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/txt_nome_emergencia_anamnese"
+                        app:layout_constraintTop_toTopOf="@+id/txt_nome_emergencia_anamnese" />
+
+                    <TextView
+                        android:id="@+id/txt_telefone_emergencia_anamnese"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Telefone:"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_nome_emergencia_anamnese" />
+
+                    <EditText
+                        android:id="@+id/input_telefone_emergencia_anamnese"
+                        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:includeFontPadding="false"
+                        android:inputType="text"
+                        android:padding="0dp"
+                        android:paddingStart="8dp"
+                        android:textAlignment="textStart"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/txt_telefone_emergencia_anamnese"
+                        app:layout_constraintStart_toEndOf="@+id/txt_telefone_emergencia_anamnese"
+                        app:layout_constraintTop_toTopOf="@+id/txt_telefone_emergencia_anamnese" />
+
+                    <TextView
+                        android:id="@+id/txt_endereco_emergencia_anamnese"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Endereço:"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_telefone_emergencia_anamnese" />
+
+                    <EditText
+                        android:id="@+id/input_endereco_emergencia_anamnese"
+                        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:includeFontPadding="false"
+                        android:inputType="text"
+                        android:padding="0dp"
+                        android:paddingStart="8dp"
+                        android:textAlignment="textStart"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/txt_endereco_emergencia_anamnese"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/txt_endereco_emergencia_anamnese"
+                        app:layout_constraintTop_toTopOf="@+id/txt_endereco_emergencia_anamnese" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_historico_clinico"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp">
+
+                <TextView
+                    android:id="@+id/txt_hclin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Histórico Clínico"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/ly_p1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_hclin">
+
+                    <TextView
+                        android:id="@+id/txt_p1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Você possui alergias ? " />
+
+                    <EditText
+                        android:id="@+id/input_p1"
+                        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Quais?"
+                        android:includeFontPadding="false"
+                        android:inputType="text"
+                        android:padding="0dp"
+                        android:paddingStart="8dp"
+                        android:text=""
+                        android:textAlignment="textStart"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>
