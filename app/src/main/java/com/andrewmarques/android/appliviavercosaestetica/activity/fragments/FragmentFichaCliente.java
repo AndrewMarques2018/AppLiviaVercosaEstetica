@@ -2,65 +2,54 @@ package com.andrewmarques.android.appliviavercosaestetica.activity.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import com.andrewmarques.android.appliviavercosaestetica.R;
+import com.andrewmarques.android.appliviavercosaestetica.adapter.AdapterClientes;
+import com.andrewmarques.android.appliviavercosaestetica.adapter.AdapterPerguntaRespostaHistoricoClinc;
+import com.andrewmarques.android.appliviavercosaestetica.model.PerguntaRespostaHistClinc;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentFichaCliente#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class FragmentFichaCliente extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public FragmentFichaCliente() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentFixaCliente.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FragmentFichaCliente newInstance(String param1, String param2) {
-        FragmentFichaCliente fragment = new FragmentFichaCliente();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_ficha_cliente, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        RecyclerView recyclerView = view.findViewById(R.id.recycler_perguntas_respostas_historico_clinc);
+        recyclerView.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(view.getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        AdapterPerguntaRespostaHistoricoClinc adapter = new AdapterPerguntaRespostaHistoricoClinc(buscarPerguntas());
+        recyclerView.setAdapter(adapter);
+    }
+
+    private List<PerguntaRespostaHistClinc> buscarPerguntas (){
+        List<PerguntaRespostaHistClinc> perguntas = new ArrayList<>();
+        String[] p = getResources().getStringArray(R.array.perguntas_historico_clinico);
+        Arrays.stream(p).forEach(s -> perguntas.add(new PerguntaRespostaHistClinc(s)));
+        return perguntas;
     }
 }

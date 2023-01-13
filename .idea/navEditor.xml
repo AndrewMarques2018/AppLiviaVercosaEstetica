@@ -64,13 +64,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="fragmentFixaCliente">
+                  <entry key="fragmentFichaCliente">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="432" />
-                            <option name="y" value="175" />
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -104,7 +104,7 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_nav_clientes_to_fragmentFixaCliente">
+                            <entry key="action_mostrar_ficha_cliente">
                               <value>
                                 <LayoutPositions />
                               </value>

@@ -7,7 +7,7 @@
     tools:context=".activity.fragments.FragmentFichaCliente">
 
     <!-- TODO: Update blank fragment layout -->
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -186,7 +186,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout"
+                    android:id="@+id/layout_dados_emergencia"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -286,7 +286,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_historico_clinico"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="32dp">
@@ -302,39 +302,20 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <LinearLayout
-                    android:id="@+id/ly_p1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_perguntas_respostas_historico_clinc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_hclin">
-
-                    <TextView
-                        android:id="@+id/txt_p1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Você possui alergias ? " />
-
-                    <EditText
-                        android:id="@+id/input_p1"
-                        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Quais?"
-                        android:includeFontPadding="false"
-                        android:inputType="text"
-                        android:padding="0dp"
-                        android:paddingStart="8dp"
-                        android:text=""
-                        android:textAlignment="textStart"
-                        android:textSize="12sp" />
-                </LinearLayout>
+                    app:layout_constraintTop_toBottomOf="@+id/txt_hclin" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </FrameLayout>

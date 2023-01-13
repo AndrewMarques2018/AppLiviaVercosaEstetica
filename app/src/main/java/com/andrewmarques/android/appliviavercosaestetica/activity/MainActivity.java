@@ -1,10 +1,13 @@
 package com.andrewmarques.android.appliviavercosaestetica.activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
@@ -15,6 +18,7 @@ import com.andrewmarques.android.appliviavercosaestetica.activity.fragments.Frag
 import com.andrewmarques.android.appliviavercosaestetica.activity.fragments.FragmentSliderRegistro;
 import com.andrewmarques.android.appliviavercosaestetica.bd.FirebaseHelper;
 import com.andrewmarques.android.appliviavercosaestetica.databinding.ActivityMainBinding;
+import com.andrewmarques.android.appliviavercosaestetica.tools.GerenciadorTXT;
 import com.heinrichreimersoftware.materialintro.app.IntroActivity;
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
 
@@ -27,6 +31,7 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -38,6 +43,7 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
         if (isCurrentUser()){
             redirecionar_menu_principal();
         }

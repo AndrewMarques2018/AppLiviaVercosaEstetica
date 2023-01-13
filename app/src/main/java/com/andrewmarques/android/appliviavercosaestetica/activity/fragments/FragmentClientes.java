@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,7 +62,7 @@ public class FragmentClientes extends Fragment {
 
         // configurar configurações de escolha de ordem das clientes
         String[] order_clientes_by = getResources().getStringArray(R.array.order_clientes_by);
-        ArrayAdapter arrayAdapter = new ArrayAdapter(fragmentView.getContext(), R.layout.dropdown_item, order_clientes_by);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(fragmentView.getContext(), R.layout.adapter_dropdown_item, order_clientes_by);
         AutoCompleteTextView autoCompleteTextView = fragmentView.findViewById(R.id.frag_bt_order_by_clientes);
         autoCompleteTextView.setAdapter(arrayAdapter);
         autoCompleteTextView.addTextChangedListener(order_clientes_change);

@@ -8,7 +8,40 @@
         <item>Data</item>
         <item>Agenda</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="perguntas_historico_clinico">
+        <item>Costuma permanecer muito tempo sentada ?</item>
+        <item>Antecedentes cirúrgicos ?</item>
+        <item>Trat. estético anterior ?</item>
+        <item>Antecedentes alérgicos ?</item>
+        <item>Funcionamento intestinal regular ?</item>
+        <item>Pratica atividade física ?</item>
+        <item>É fumante ?</item>
+        <item>Bebidas alcoolicas ?</item>
+        <item>Alimentação balanceada ?</item>
+        <item>Ingere líquidos com frequência ?</item>
+        <item>É gestante ?</item>
+        <item>Tem algum problema ortopédico ?</item>
+        <item>Faz algum tratamento médico ?</item>
+        <item>Faz uso de remédios ?</item>
+        <item>Usa ou já usou ácidos na pele ?</item>
+        <item>Já fez algum tratamento ortomelecular ?</item>
+        <item>Cuidados Diários e produtos em uso ?</item>
+        <item>Portador de Marcapasso ?</item>
+        <item>Presença de metais ?</item>
+        <item>Antecedentes oncológicos ?</item>
+        <item>Ciclo menstrual regular ?</item>
+        <item>Usa método anticoncepcional ?</item>
+        <item>Varizes ?</item>
+        <item>Lesões ?</item>
+        <item>Exames de sangue ?</item>
+        <item>Hipertensão ?</item>
+        <item>Epilepsia ?</item>
+        <item>Hipotensão ?</item>
+        <item>Diabetes ?</item>
+        <item>Dermatite ?</item>
+    </string-array>
 
 </resources>
