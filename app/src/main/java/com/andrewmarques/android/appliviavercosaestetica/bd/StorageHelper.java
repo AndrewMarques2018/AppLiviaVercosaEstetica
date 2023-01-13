@@ -1,53 +1,40 @@
-package com.andrewmarques.android.appliviavercosaestetica.tools;
+package com.andrewmarques.android.appliviavercosaestetica.bd;
 
-import android.app.usage.ExternalStorageStats;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.res.AssetManager;
-import android.content.res.Resources;
-import android.os.Build;
-import android.util.Log;
-
-import androidx.annotation.RequiresApi;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.net.URLDecoder;
-import java.security.CodeSource;
-import java.util.Scanner;
 
-public class GerenciadorTXT {
+public class StorageHelper {
 
     Context fileContext;
 
-    public GerenciadorTXT(Context fileContext) {
+    public StorageHelper(Context fileContext) {
         this.fileContext = fileContext;
     }
 
-    public void gravar (String dados) {
+    public void gravar (String path, String dados) throws IOException {
         try{
-            FileOutputStream output = fileContext.openFileOutput("perguntaRespostaHistClinc.txt", Context.MODE_PRIVATE);
+            FileOutputStream output = fileContext.openFileOutput(path+".txt", Context.MODE_PRIVATE);
             OutputStreamWriter outputStream = new OutputStreamWriter(output);
             outputStream.write(dados);
             outputStream.flush();
             outputStream.close();
-        }catch (Exception e) {
-            e.printStackTrace();
+
+        } catch (IOException e) {
+            throw e;
         }
     }
 
-    public String ler (){
+    public String ler ( String path ) throws IOException {
         StringBuffer dados = new StringBuffer();
 
         try {
-            FileInputStream input = fileContext.openFileInput("perguntaRespostaHistClinc.txt");
+            FileInputStream input = fileContext.openFileInput(path+".txt");
             InputStreamReader inputStream = new InputStreamReader(input);
             BufferedReader bufferedReader = new BufferedReader(inputStream);
 
@@ -60,9 +47,8 @@ public class GerenciadorTXT {
             inputStream.close();
 
         }catch (IOException e) {
-            e.printStackTrace();
+            throw e;
         }
         return dados.toString();
     }
-
 }

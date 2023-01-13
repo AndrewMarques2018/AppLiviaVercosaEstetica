@@ -1,26 +1,18 @@
 package com.andrewmarques.android.appliviavercosaestetica.activity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.andrewmarques.android.appliviavercosaestetica.R;
 import com.andrewmarques.android.appliviavercosaestetica.activity.fragments.FragmentSlider1Intro;
 import com.andrewmarques.android.appliviavercosaestetica.activity.fragments.FragmentSliderRegistro;
 import com.andrewmarques.android.appliviavercosaestetica.bd.FirebaseHelper;
 import com.andrewmarques.android.appliviavercosaestetica.databinding.ActivityMainBinding;
-import com.andrewmarques.android.appliviavercosaestetica.tools.GerenciadorTXT;
-import com.heinrichreimersoftware.materialintro.app.IntroActivity;
-import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
 
 public class MainActivity extends FragmentActivity {
 
