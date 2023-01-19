@@ -43,13 +43,13 @@
     <dialog
         android:id="@+id/fragmentBottomSheetAddClientes"
         android:name="com.andrewmarques.android.appliviavercosaestetica.activity.fragments.FragmentClientesBottomSheetAdd"
-        android:label="fragment_bottom_sheet_add_clientes"
+        android:label="Adicionar Clientes"
         tools:layout="@layout/fragment_bottom_sheet_add_clientes" />
 
     <fragment
         android:id="@+id/fragmentFichaCliente"
         android:name="com.andrewmarques.android.appliviavercosaestetica.activity.fragments.FragmentFichaCliente"
-        android:label="fragment_ficha_cliente"
+        android:label="Ficha"
         tools:layout="@layout/fragment_ficha_cliente" />
 
     <fragment

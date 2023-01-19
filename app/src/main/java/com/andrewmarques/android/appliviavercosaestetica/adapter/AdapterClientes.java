@@ -12,7 +12,7 @@ import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.andrewmarques.android.appliviavercosaestetica.R;
-import com.andrewmarques.android.appliviavercosaestetica.model.Cliente;
+import com.andrewmarques.android.appliviavercosaestetica.model.Usuario;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,10 +21,10 @@ import java.util.Objects;
 
 public class AdapterClientes extends RecyclerView.Adapter <AdapterClientes.MyViewHolder> {
 
-    List<Cliente> clientes;
+    List<Usuario> clientes;
     NavController navController;
 
-    public AdapterClientes(List<Cliente> clientes, NavController navController) {
+    public AdapterClientes(List<Usuario> clientes, NavController navController) {
         this.clientes = clientes;
         this.navController = navController;
     }
@@ -40,17 +40,7 @@ public class AdapterClientes extends RecyclerView.Adapter <AdapterClientes.MyVie
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.nome.setText(clientes.get(position).getNome());
         holder.contato.setText(clientes.get(position).getTelefone());
-        String prox = clientes.get(position).getT2();
-
-        if (!Objects.equals(prox, "")){
-            holder.proxAgem.setText(prox);
-        }else{
-            holder.proxAgem.setText("Nada Marcado!");
-        }
-
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        Date d = clientes.get(position).getT1();
-        holder.data.setText(sdf.format(d));
+        holder.data.setText("xx/xx/xxxx");
 
 
     }

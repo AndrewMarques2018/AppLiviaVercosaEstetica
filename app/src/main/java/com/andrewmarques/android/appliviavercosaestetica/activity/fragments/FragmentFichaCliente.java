@@ -5,19 +5,16 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 
 import com.andrewmarques.android.appliviavercosaestetica.R;
-import com.andrewmarques.android.appliviavercosaestetica.adapter.AdapterClientes;
 import com.andrewmarques.android.appliviavercosaestetica.adapter.AdapterPerguntaRespostaHistoricoClinc;
-import com.andrewmarques.android.appliviavercosaestetica.model.PerguntaRespostaHistClinc;
+import com.andrewmarques.android.appliviavercosaestetica.model.PerguntaResposta;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -46,10 +43,10 @@ public class FragmentFichaCliente extends Fragment {
         recyclerView.setAdapter(adapter);
     }
 
-    private List<PerguntaRespostaHistClinc> buscarPerguntas (){
-        List<PerguntaRespostaHistClinc> perguntas = new ArrayList<>();
+    private List<PerguntaResposta> buscarPerguntas (){
+        List<PerguntaResposta> perguntas = new ArrayList<>();
         String[] p = getResources().getStringArray(R.array.perguntas_historico_clinico);
-        Arrays.stream(p).forEach(s -> perguntas.add(new PerguntaRespostaHistClinc(s)));
+        Arrays.stream(p).forEach(s -> perguntas.add(new PerguntaResposta(s)));
         return perguntas;
     }
 }

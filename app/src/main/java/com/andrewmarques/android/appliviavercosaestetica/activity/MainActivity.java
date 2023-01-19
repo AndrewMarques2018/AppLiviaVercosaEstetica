@@ -13,10 +13,16 @@ import com.andrewmarques.android.appliviavercosaestetica.activity.fragments.Frag
 import com.andrewmarques.android.appliviavercosaestetica.activity.fragments.FragmentSliderRegistro;
 import com.andrewmarques.android.appliviavercosaestetica.bd.FirebaseHelper;
 import com.andrewmarques.android.appliviavercosaestetica.databinding.ActivityMainBinding;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 
 public class MainActivity extends FragmentActivity {
 
     ActivityMainBinding binding;
+    private GoogleSignInClient googleSignInClient;
+    private GoogleSignInOptions googleSignInOptions;
     private ViewPager2 viewPagerSliderIntro;
     private FragmentStateAdapter pagerAdapter;
 
@@ -30,6 +36,7 @@ public class MainActivity extends FragmentActivity {
         viewPagerSliderIntro = binding.viewPager2;
         pagerAdapter = new ScreenSliderPageAdapter(this);
         viewPagerSliderIntro.setAdapter(pagerAdapter);
+
     }
 
     @Override
@@ -42,6 +49,19 @@ public class MainActivity extends FragmentActivity {
     }
 
     private boolean isCurrentUser() {
+        googleSignInOptions = new GoogleSignInOptions.Builder(
+                GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken("224325117326-mlllafvbt7pqhksm63od2t2rmqc4hndg.apps.googleusercontent.com")
+                .requestEmail()
+                .build();
+
+        googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
+
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+
+        if(account != null) {
+            return true;
+        }
         return FirebaseHelper.getInstance().getCurrentUser() != null;
     }
 

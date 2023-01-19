@@ -3,25 +3,22 @@ package com.andrewmarques.android.appliviavercosaestetica.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.andrewmarques.android.appliviavercosaestetica.R;
-import com.andrewmarques.android.appliviavercosaestetica.model.PerguntaRespostaHistClinc;
+import com.andrewmarques.android.appliviavercosaestetica.model.PerguntaResposta;
 
 import java.util.List;
 
 public class AdapterPerguntaRespostaHistoricoClinc extends RecyclerView.Adapter <AdapterPerguntaRespostaHistoricoClinc.MyViewHolder> {
 
-    List<PerguntaRespostaHistClinc> perguntas;
+    List<PerguntaResposta> perguntas;
 
-    public AdapterPerguntaRespostaHistoricoClinc(List<PerguntaRespostaHistClinc> perguntas) {
+    public AdapterPerguntaRespostaHistoricoClinc(List<PerguntaResposta> perguntas) {
         this.perguntas = perguntas;
     }
 

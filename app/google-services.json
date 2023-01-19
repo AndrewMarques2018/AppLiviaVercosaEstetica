@@ -15,23 +15,22 @@
       },
       "oauth_client": [
         {
-          "client_id": "224325117326-8t5lom0et00m9q0qe1qdejq2srgm1219.apps.googleusercontent.com",
-          "client_type": 3
+          "client_id": "224325117326-mlllafvbt7pqhksm63od2t2rmqc4hndg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.andrewmarques.android.appliviavercosaestetica",
+            "certificate_hash": "b03fb90e22d7c2b908c9e3a6de0c2e7c9e954f4e"
+          }
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBBwdJkbwQEQr50diW3fBJioz7WxMBLw2s"
+          "current_key": "AIzaSyB5NX8tz0MdNrO1MUx54Tbn2E_Z6HysNBE"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "224325117326-8t5lom0et00m9q0qe1qdejq2srgm1219.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

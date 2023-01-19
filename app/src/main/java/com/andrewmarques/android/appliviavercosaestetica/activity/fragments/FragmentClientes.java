@@ -19,23 +19,16 @@ import android.widget.AutoCompleteTextView;
 
 import com.andrewmarques.android.appliviavercosaestetica.R;
 import com.andrewmarques.android.appliviavercosaestetica.adapter.AdapterClientes;
-import com.andrewmarques.android.appliviavercosaestetica.model.Cliente;
+import com.andrewmarques.android.appliviavercosaestetica.model.Usuario;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-
-/**
- * A simple {@link Fragment} subclass.
- */
 
 public class FragmentClientes extends Fragment {
 
     private View fragmentView;
-    private List<Cliente> clientes;
+    private List<Usuario> clientes;
     AdapterClientes adapterClientes;
 
     public FragmentClientes() {
@@ -80,64 +73,40 @@ public class FragmentClientes extends Fragment {
 
     private void gerarClientes() {
         clientes = new ArrayList<>();
-        Cliente c = new Cliente("Maria das Graças", "09/12/1987", "(83) 94532-7493", null, null);
-        c.setT1("01/01/2023");
-        c.setT2("12/01/2023 14:40 Hidrolipo");
+        Usuario c = new Usuario("Maria das Graças");
         clientes.add(c);
 
-        c = new Cliente("Yaridsa Drummont Darsié", "27/01/1988", "(12) 12331-3217", null, null);
-        c.setT1("05/01/2023");
-        c.setT2("20/01/2023 14:40 D-Tox");
+        c = new Usuario("Yaridsa Drummont Darsié");
         clientes.add(c);
 
-        c = new Cliente("Astred Vanhalla", "06/02/1993", "(01) 99934-9432", null, null);
-        c.setT1("20/12/2022");
-        c.setT2("");
+        c = new Usuario("Astred Vanhalla");
         clientes.add(c);
 
-        c = new Cliente("Emilly White Dantas", "21/11/1991", "(90) 86543-2300", null, null);
-        c.setT1("11/12/2022");
-        c.setT2("");
+        c = new Usuario("Emilly White Dantas");
         clientes.add(c);
 
-        c = new Cliente("Arliene Pereira Filha", "30/07/1992", "(65) 10364-5463", null, null);
-        c.setT1("06/01/2023");
-        c.setT2("31/01/2023 09:40 Massagem Modeladora");
+        c = new Usuario("Arliene Pereira Filha");
         clientes.add(c);
 
-        c = new Cliente("Gerlian das Dores", "14/10/2000", "(55) 42748-8483", null, null);
-        c.setT1("02/01/2023");
-        c.setT2("30/01/2023 14:40 Hidrolipo");
+        c = new Usuario("Gerlian das Dores");
         clientes.add(c);
 
-        new Cliente("Milena Santos Costa", "19/09/1998", "(78) 94683-6848", null, null);
-        c.setT1("03/01/2023");
-        c.setT2("");
+        new Usuario("Milena Santos Costa");
         clientes.add(c);
 
-        c = new Cliente("Lira da Silva", "02/01/1996", "(82) 42748-8492", null, null);
-        c.setT1("25/11/2022");
-        c.setT2("");
+        c = new Usuario("Lira da Silva");
         clientes.add(c);
 
-        c = new Cliente("Antonia Obadias", "07/07/1990", "(85) 02843-3313", null, null);
-        c.setT1("17/11/2022");
-        c.setT2("28/01/2023 14:40 Ultrassom");
+        c = new Usuario("Antonia Obadias");
         clientes.add(c);
 
-        c = new Cliente("Astoufa Criola", "04/05/1989", "(85) 72947-3490", null, null);
-        c.setT1("04/01/2023");
-        c.setT2("19/01/2023 09:40 Limpeza Pele");
+        c = new Usuario("Astoufa Criola");
         clientes.add(c);
 
-        c = new Cliente("Jubileia Santos", "11/11/1997", "(18) 04782-2324", null, null);
-        c.setT1("04/01/2023");
-        c.setT2("");
+        c = new Usuario("Jubileia Santos");
         clientes.add(c);
 
-        c = new Cliente("Francisca Gerliane", "12/03/1995", "(85) 64823-5392", null, null);
-        c.setT1("26/12/2022");
-        c.setT2("13/01/2023 13:30 Hidrolipo");
+        c = new Usuario("Francisca Gerliane");
         clientes.add(c);
 
     }
@@ -155,60 +124,7 @@ public class FragmentClientes extends Fragment {
 
         @Override
         public void afterTextChanged(Editable s) {
-            switch (s.toString()) {
-                case "Nome":
-                    Collections.sort(clientes, new Comparator<Cliente>() {
-                        @Override
-                        public int compare(Cliente o1, Cliente o2) {
-                            return o1.getNome().compareTo(o2.getNome());
-                        }
-                    });
-                    adapterClientes.notifyDataSetChanged();
-                    break;
-                case "Idade":
-                    Collections.sort(clientes, new Comparator<Cliente>() {
-                        @Override
-                        public int compare(Cliente o1, Cliente o2) {
-                            return o1.getDataNasc().compareTo(o2.getDataNasc());
-                        }
-                    });
-                    adapterClientes.notifyDataSetChanged();
-                    break;
-                case "Data":
-                    Collections.sort(clientes, new Comparator<Cliente>() {
-                        @Override
-                        public int compare(Cliente o1, Cliente o2) {
-                            if (o1.getT1().before(o2.getT1())) {
-                                return 1;
-                            }else{
-                                return -1;
-                            }
-                        }
-                    });
-                    adapterClientes.notifyDataSetChanged();
-                    break;
-                case "Agendamento":
-                    Collections.sort(clientes, new Comparator<Cliente>() {
-                        @Override
-                        public int compare(Cliente o1, Cliente o2) {
-                            if (o1.getT2().isEmpty()){
-                                return -1;
-                            }
-
-                            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh/mm");
-                            try {
-                                if(sdf.parse(o1.getT2().substring(0,15)).before(sdf.parse(o2.getT2().substring(0,15)))){
-                                    return 1;
-                                }
-                            }catch (Exception e){
-
-                            }
-                            return o1.getT2().compareTo(o2.getT2());
-                        }
-                    });
-                    adapterClientes.notifyDataSetChanged();
-                    break;
-            }
+            // implemente o order aqui!
         }
     };
 

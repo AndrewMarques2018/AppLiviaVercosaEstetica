@@ -9,6 +9,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
+/*
+* Storage Helper:
+* salva e resgata informaçoes no celular
+*/
+
 public class StorageHelper {
 
     Context fileContext;
@@ -17,7 +22,7 @@ public class StorageHelper {
         this.fileContext = fileContext;
     }
 
-    public void gravar (String path, String dados) throws IOException {
+    public void write (String path, String dados) throws IOException {
         try{
             FileOutputStream output = fileContext.openFileOutput(path+".txt", Context.MODE_PRIVATE);
             OutputStreamWriter outputStream = new OutputStreamWriter(output);
@@ -30,7 +35,7 @@ public class StorageHelper {
         }
     }
 
-    public String ler ( String path ) throws IOException {
+    public String read ( String path ) throws IOException {
         StringBuffer dados = new StringBuffer();
 
         try {

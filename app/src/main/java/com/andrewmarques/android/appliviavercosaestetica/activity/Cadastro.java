@@ -1,41 +1,49 @@
 package com.andrewmarques.android.appliviavercosaestetica.activity;
 
-import androidx.annotation.NonNull;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.content.res.AppCompatResources;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.icu.text.IDNA;
-import android.icu.text.Normalizer2;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import com.andrewmarques.android.appliviavercosaestetica.R;
 import com.andrewmarques.android.appliviavercosaestetica.bd.FirebaseHelper;
 import com.andrewmarques.android.appliviavercosaestetica.databinding.ActivityCadastroBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
+import com.andrewmarques.android.appliviavercosaestetica.model.Usuario;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.FirebaseNetworkException;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.auth.GoogleAuthProvider;
 
 public class Cadastro extends AppCompatActivity {
 
     private ActivityCadastroBinding binding;
+    private GoogleSignInClient googleSignInClient;
+    private GoogleSignInOptions googleSignInOptions;
     private TextInputLayout txt_nome;
     private TextInputLayout txt_senha;
     private TextInputLayout txt_confirmaSenha;
-    private TextView txt_email;
+    private TextInputLayout txt_email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         binding = ActivityCadastroBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -44,72 +52,52 @@ public class Cadastro extends AppCompatActivity {
         txt_confirmaSenha = binding.txtConfirmaSenhaCadastro;
         txt_email = binding.txtEmailCadastro;
 
-        txt_nome.getEditText().addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        googleSignInOptions = new GoogleSignInOptions.Builder(
+                GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken("224325117326-mlllafvbt7pqhksm63od2t2rmqc4hndg.apps.googleusercontent.com")
+                .requestEmail()
+                .build();
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                if(s.toString().equalsIgnoreCase("Andrew")){
-                    txt_nome.setError("Usuário já existe!");
-                }else {
-                    txt_nome.setError(null);
-                }
-
-                if(s.length() >= 15){
-                    txt_nome.setHelperText("Tamanho max excedido");
-                }else {
-                    txt_nome.setHelperText("");
-                }
-
-                txt_email.setText("Seu Login Será: " + s + "@estetica.com");
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
+        googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
     }
 
-    public void bt_cadastrar_cadastro (View view) {
+    public void bt_cadastrar_cadastro(View view) {
 
-        FirebaseHelper.singnOut();
-        String email = txt_nome.getEditText().getText().toString() + "@estetica.com";
-        String senha = txt_senha.getEditText().getText().toString();
+        Usuario u = new Usuario();
+        u.setEmail(txt_nome.getEditText().getText().toString());
+        u.setSenha(txt_senha.getEditText().getText().toString());
 
-        Log.i("Análise do dev:", "Cadastro.java: cadatrar:" +
-                "\n email: " +
-                email +
-                "\n senha: " +
-                senha
-                );
+        cadastrarNuvem(u);
+    }
 
+    private void verificarEmail (Usuario u) {
+
+    }
+
+    private void cadastrarNuvem (Usuario u) {
         Task<AuthResult> task = null;
-
         try{
-            task = FirebaseHelper.cadastrar_new_user(email, senha);
+            task = FirebaseHelper.cadastrarUsuario(u.getEmail(), u.getSenha());
         }catch (NullPointerException | IllegalArgumentException e){
-            Log.i("Análise do dev", "Cadastro: cadastrar: Falha na requisição do cadastro: login ou senha vazia");
+            Toast.makeText(getApplicationContext(), "Email ou Senha Vazios", Toast.LENGTH_SHORT).show();
+
         }catch (Exception e){
-            Log.i("Análise do dev", "Cadastro: cadastrar: Falha na requisição do cadastro: " + e.getMessage());
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
 
-        if (task != null)
-        task.addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    Log.i("Análise do dev", "Cadastro: cadastrar: Sucesso ao cadastrar");
+        if (task != null) {
+            task.addOnCompleteListener( cadatro -> {
+
+                if (cadatro.isSuccessful()){
+                    Toast.makeText(getApplicationContext(), "Sucesso ao cadastrar", Toast.LENGTH_SHORT).show();
                     finish();
+
                 }else{
                     String msgException = "null";
+
                     try{
-                        throw task.getException();
+                        throw cadatro.getException();
                     }catch (FirebaseAuthWeakPasswordException e) {
                         msgException = "Digite uma senha mais forte";
 
@@ -119,13 +107,69 @@ public class Cadastro extends AppCompatActivity {
                     }catch (FirebaseAuthUserCollisionException e) {
                         msgException = "Esta conta já foi cadastrada";
 
+                    }catch (FirebaseNetworkException e) {
+                        msgException = "Sem conexão com a internet";
+
                     }catch (Exception e) {
                         msgException = "Erro ao cadastrar usuario: " + e.getMessage();
                         e.printStackTrace();
                     }
-                    Log.i("Análise do dev", "Cadastro: cadastrar: Falha ao cadastrar: " + msgException);
+
+                    Toast.makeText(getApplicationContext(), msgException, Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
+    public void bt_cadastrar_cadastro_by_google (View view) {
+        showIntentCadastroByGoogle();
+    }
+
+    private void showIntentCadastroByGoogle() {
+        Intent intent = googleSignInClient.getSignInIntent();
+        abreActivity.launch(intent);
+    }
+
+    ActivityResultLauncher<Intent> abreActivity = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    Intent data = result.getData();
+                    Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+
+                    try{
+                        GoogleSignInAccount conta = task.getResult(ApiException.class);
+                        loginByGoogle(conta.getIdToken());
+
+                    } catch (ApiException e) {
+                        Toast.makeText(getApplicationContext(), "Nenhum login com o google", Toast.LENGTH_SHORT).show();
+                    }
+                }else {
+                    Toast.makeText(getApplicationContext(), "Erro ao efetuar login", Toast.LENGTH_SHORT).show();
                 }
             }
-        });
+    );
+
+    private void loginByGoogle (String token){
+
+        try{
+            AuthCredential credential = GoogleAuthProvider.getCredential(token, null);
+
+            FirebaseHelper.getInstance().signInWithCredential(credential).addOnCompleteListener(this, result -> {
+                if (result.isSuccessful()){
+                    Toast.makeText(getApplicationContext(), "Cadastro Google no firebase efetuado com sucesso!", Toast.LENGTH_SHORT).show();
+                    finish();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Erro ao efetuar cadastro com o google no firebase", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }catch (Exception e){
+            Log.i("Análise do dev", "credecial error: " + e.getMessage());
+        }
+
+
+
     }
+
 }

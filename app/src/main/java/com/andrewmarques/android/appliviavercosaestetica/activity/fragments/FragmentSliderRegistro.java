@@ -15,6 +15,10 @@ import com.andrewmarques.android.appliviavercosaestetica.R;
 
 public class FragmentSliderRegistro extends Fragment {
 
+    public FragmentSliderRegistro () {
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

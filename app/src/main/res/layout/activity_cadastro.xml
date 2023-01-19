@@ -28,12 +28,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:hint="Digite seu nome"
         android:textColorHint="#555555"
         app:counterEnabled="true"
-        app:counterMaxLength="15"
+        app:counterMaxLength="30"
         app:endIconMode="clear_text"
         app:errorEnabled="true"
         app:errorIconDrawable="@drawable/ic_error_cinza"
@@ -49,7 +49,36 @@
             android:layout_height="wrap_content"
             android:fontFamily="casual"
             android:inputType="text"
-            android:maxLength="15"
+            android:maxLength="30"
+            android:textSize="14sp"
+            tools:ignore="TouchTargetSizeCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt_email_cadastro"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="-5dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Digite seu e-mail ou telefone"
+        android:textColorHint="#555555"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/ic_error_cinza"
+        app:errorTextColor="@android:color/holo_red_light"
+        app:helperTextTextColor="#555555"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nome_cadastro"
+        app:startIconDrawable="@drawable/ic_email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:inputType="text"
             android:textSize="14sp"
             tools:ignore="TouchTargetSizeCheck" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -69,7 +98,7 @@
         app:helperTextEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nome_cadastro"
+        app:layout_constraintTop_toBottomOf="@+id/txt_email_cadastro"
         app:startIconDrawable="@drawable/ic_lock_cinza">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -108,12 +137,11 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/bt_cadastrese"
         style="@style/ButtonStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:onClick="bt_cadastrar_cadastro"
         android:text="Cadastre-se"
@@ -122,23 +150,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_confirmaSenha_cadastro" />
 
-    <TextView
-        android:id="@+id/txt_email_cadastro"
+    <Button
+        android:id="@+id/bt_cadastrese_by_google"
+        style="@style/Widget.Material3.Button.IconButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:textAlignment="center"
-        android:textColor="#F44336"
-        android:textStyle="bold"
+        android:backgroundTint="@color/md_theme_light_onSecondary"
+        android:elevation="10dp"
+        android:foregroundGravity="center"
+        android:onClick="bt_cadastrar_cadastro_by_google"
+        android:text="Cadastre-se"
+        android:textAllCaps="false"
+        android:textColor="@color/md_theme_light_shadow"
+        app:icon="@drawable/googleg_standard_color_18"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp"
+        app:iconTint="#FFFFFF"
+        app:iconTintMode="multiply"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
     <ImageView
-        style="@style/LogoStyle"
         android:id="@+id/imageView4"
+        style="@style/LogoStyle"
         android:layout_width="175dp"
         android:layout_height="100dp"
         android:layout_marginStart="8dp"
@@ -148,5 +185,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/logo_estetica" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ou"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_cadastrese" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
