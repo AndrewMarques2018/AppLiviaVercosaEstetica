@@ -1,5 +1,7 @@
 package com.andrewmarques.android.appliviavercosaestetica.activity;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
@@ -12,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.andrewmarques.android.appliviavercosaestetica.R;
 import com.andrewmarques.android.appliviavercosaestetica.bd.FirebaseHelper;
 import com.andrewmarques.android.appliviavercosaestetica.databinding.ActivityCadastroBinding;
 import com.andrewmarques.android.appliviavercosaestetica.model.Usuario;
@@ -52,26 +55,49 @@ public class Cadastro extends AppCompatActivity {
         txt_confirmaSenha = binding.txtConfirmaSenhaCadastro;
         txt_email = binding.txtEmailCadastro;
 
-        googleSignInOptions = new GoogleSignInOptions.Builder(
-                GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("224325117326-mlllafvbt7pqhksm63od2t2rmqc4hndg.apps.googleusercontent.com")
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.server_client_id))
                 .requestEmail()
                 .build();
-
-        googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
+        googleSignInClient = GoogleSignIn.getClient(this, gso);
     }
 
     public void bt_cadastrar_cadastro(View view) {
-
         Usuario u = new Usuario();
-        u.setEmail(txt_nome.getEditText().getText().toString());
-        u.setSenha(txt_senha.getEditText().getText().toString());
-
-        cadastrarNuvem(u);
+        if (validaDados()){
+            u.setEmail(txt_email.getEditText().getText().toString());
+            u.setSenha(txt_senha.getEditText().getText().toString());
+            cadastrarNuvem(u);
+        }
     }
 
-    private void verificarEmail (Usuario u) {
+    private boolean validaDados(){
+        String nome = txt_nome.getEditText().getText().toString();
+        String email = txt_email.getEditText().getText().toString();
+        String senha = txt_senha.getEditText().getText().toString();
+        String confSenha = txt_confirmaSenha.getEditText().getText().toString();
 
+        if (nome.isEmpty()){
+            Toast.makeText(getApplicationContext(), "Preencha o campo nome", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (email.isEmpty()){
+            Toast.makeText(getApplicationContext(), "Preencha o campo e-mail", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (senha.isEmpty()){
+            Toast.makeText(getApplicationContext(), "Preencha o campo senha", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (confSenha.isEmpty()){
+            Toast.makeText(getApplicationContext(), "Confirme sua senha", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(!senha.equals(confSenha)){
+            Toast.makeText(getApplicationContext(), "As senhas não coincidem", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 
     private void cadastrarNuvem (Usuario u) {
@@ -122,10 +148,6 @@ public class Cadastro extends AppCompatActivity {
     }
 
     public void bt_cadastrar_cadastro_by_google (View view) {
-        showIntentCadastroByGoogle();
-    }
-
-    private void showIntentCadastroByGoogle() {
         Intent intent = googleSignInClient.getSignInIntent();
         abreActivity.launch(intent);
     }
@@ -137,21 +159,21 @@ public class Cadastro extends AppCompatActivity {
                     Intent data = result.getData();
                     Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
 
-                    try{
-                        GoogleSignInAccount conta = task.getResult(ApiException.class);
-                        loginByGoogle(conta.getIdToken());
-
+                    try {
+                        GoogleSignInAccount account = task.getResult(ApiException.class);
+                        String tokenId = account.getIdToken();
+                        loginByGoogle(tokenId);
                     } catch (ApiException e) {
-                        Toast.makeText(getApplicationContext(), "Nenhum login com o google", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Erro no login com o Google: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
-                }else {
-                    Toast.makeText(getApplicationContext(), "Erro ao efetuar login", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Erro ao efetuar login com o Google", Toast.LENGTH_SHORT).show();
                 }
             }
     );
 
-    private void loginByGoogle (String token){
 
+    private void loginByGoogle (String token){
         try{
             AuthCredential credential = GoogleAuthProvider.getCredential(token, null);
 
@@ -167,9 +189,5 @@ public class Cadastro extends AppCompatActivity {
         }catch (Exception e){
             Log.i("Análise do dev", "credecial error: " + e.getMessage());
         }
-
-
-
     }
-
 }
