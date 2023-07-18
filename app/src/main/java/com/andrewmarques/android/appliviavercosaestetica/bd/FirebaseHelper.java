@@ -1,5 +1,9 @@
 package com.andrewmarques.android.appliviavercosaestetica.bd;
 
+import android.content.Context;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,8 +38,14 @@ public class FirebaseHelper {
         return getInstance().signInWithEmailAndPassword(email, senha);
     }
 
-    public static void signOut() {
+    public static void signOut(Context context) {
         getInstance().signOut();
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build();
+        GoogleSignInClient googleSignInClient = GoogleSignIn.getClient(context, gso);
+        googleSignInClient.signOut().addOnCompleteListener(task -> {
+            // Ação a ser realizada após o logout
+        });
     }
 
 }

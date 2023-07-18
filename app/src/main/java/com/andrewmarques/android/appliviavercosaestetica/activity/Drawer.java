@@ -58,7 +58,7 @@ public class Drawer extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_sair:
-                FirebaseHelper.signOut();
+                FirebaseHelper.signOut(this);
                 finish();
                 break;
             case R.id.menu_info:
