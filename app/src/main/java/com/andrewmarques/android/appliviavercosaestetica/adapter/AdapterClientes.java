@@ -1,5 +1,6 @@
 package com.andrewmarques.android.appliviavercosaestetica.adapter;
 
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import com.andrewmarques.android.appliviavercosaestetica.R;
 import com.andrewmarques.android.appliviavercosaestetica.model.Usuario;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -40,8 +43,16 @@ public class AdapterClientes extends RecyclerView.Adapter <AdapterClientes.MyVie
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.nome.setText(clientes.get(position).getNome());
         holder.contato.setText(clientes.get(position).getTelefone());
-        holder.data.setText("xx/xx/xxxx");
 
+        LocalDate data_nasc = clientes.get(position).getDataNasc();
+        if (data_nasc != null){
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                holder.data.setText(formato.format(data_nasc));
+            }
+        }else{
+            holder.data.setText("S/N");
+        }
 
     }
 

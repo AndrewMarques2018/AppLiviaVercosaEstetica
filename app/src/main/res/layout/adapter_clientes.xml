@@ -49,7 +49,6 @@
             app:iconSize="50dp"
             app:layout_constraintBottom_toBottomOf="@+id/adapter_img_cliente"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/adapter_data_ultima_visita"
             app:layout_constraintTop_toBottomOf="@+id/adapter_data_ultima_visita" />
 
         <TextView
@@ -68,10 +67,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
             android:text="24/12/2022"
             android:textSize="10sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/adapter_bt_fixa"
+            app:layout_constraintStart_toStartOf="@+id/adapter_bt_fixa"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView

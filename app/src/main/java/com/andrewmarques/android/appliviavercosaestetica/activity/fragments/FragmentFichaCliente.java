@@ -1,5 +1,6 @@
 package com.andrewmarques.android.appliviavercosaestetica.activity.fragments;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -46,7 +47,9 @@ public class FragmentFichaCliente extends Fragment {
     private List<PerguntaResposta> buscarPerguntas (){
         List<PerguntaResposta> perguntas = new ArrayList<>();
         String[] p = getResources().getStringArray(R.array.perguntas_historico_clinico);
-        Arrays.stream(p).forEach(s -> perguntas.add(new PerguntaResposta(s)));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Arrays.stream(p).forEach(s -> perguntas.add(new PerguntaResposta(s)));
+        }
         return perguntas;
     }
 }

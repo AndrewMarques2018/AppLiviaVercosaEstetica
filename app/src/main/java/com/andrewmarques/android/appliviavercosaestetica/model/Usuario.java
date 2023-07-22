@@ -1,5 +1,6 @@
 package com.andrewmarques.android.appliviavercosaestetica.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Usuario {
@@ -9,9 +10,8 @@ public class Usuario {
     private String email;
     private String senha;
     private String telefone;
-    private String cpf_cnpj;
     private String endereco;
-    private Date dataNasc;
+    private LocalDate dataNasc;
     public FichaAnamnese fichaAnamnese;
     public Usuario contatoEmergencia;
 
@@ -62,14 +62,6 @@ public class Usuario {
         this.telefone = telefone;
     }
 
-    public String getCpf_cnpj() {
-        return cpf_cnpj;
-    }
-
-    public void setCpf_cnpj(String cpf_cnpj) {
-        this.cpf_cnpj = cpf_cnpj;
-    }
-
     public String getEndereco() {
         return endereco;
     }
@@ -78,11 +70,11 @@ public class Usuario {
         this.endereco = endereco;
     }
 
-    public Date getDataNasc() {
+    public LocalDate getDataNasc() {
         return dataNasc;
     }
 
-    public void setDataNasc(Date dataNasc) {
+    public void setDataNasc(LocalDate dataNasc) {
         this.dataNasc = dataNasc;
     }
 }

@@ -1,5 +1,6 @@
 package com.andrewmarques.android.appliviavercosaestetica.activity.fragments;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,7 @@ import com.andrewmarques.android.appliviavercosaestetica.adapter.AdapterClientes
 import com.andrewmarques.android.appliviavercosaestetica.model.Usuario;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,6 +76,13 @@ public class FragmentClientes extends Fragment {
     private void gerarClientes() {
         clientes = new ArrayList<>();
         Usuario c = new Usuario("Maria das Graças");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            c.setDataNasc(LocalDate.of(1994, 11, 3));
+        }
+        c.setEndereco("Fortaleza-CE Rua Jubileu Chirimbiola 452");
+        c.setEmail("mariazinha@gmail.com");
+        c.setTelefone("(89)91234-5943");
+        c.setId("0001");
         clientes.add(c);
 
         c = new Usuario("Yaridsa Drummont Darsié");
@@ -108,7 +117,6 @@ public class FragmentClientes extends Fragment {
 
         c = new Usuario("Francisca Gerliane");
         clientes.add(c);
-
     }
 
     private TextWatcher order_clientes_change = new TextWatcher() {
